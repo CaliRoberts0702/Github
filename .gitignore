@@ -8,3 +8,21 @@
 *.xls
 data*/
 
+# R Markdown intermediate and backup files
+*.utf8.md
+*.knit.md
+*.Rmd~
+
+# knitr cache and output
+*_cache/
+*_files/
+
+# Dependency management
+packrat/
+renv/
+renv.lock
+
+# System-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
