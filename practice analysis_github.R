@@ -21,3 +21,22 @@ plot <-ggplot(Microplastic_Concentration_Data, aes(x = Species, y = `Microplasti
     axis.text.x = element_text(angle = 45, hjust = 1)
   )
 print(plot)
+
+# Calculate summary statistics by species
+library(dplyr)
+# Calculate summary statistics by species
+summary_stats <- Microplastic_Concentration_Data  %>%
+  group_by(Species) %>%
+  summarise(
+    Count = n(),
+    Mean = mean(Microplastic.Concentration..particles.g.),
+    Std_Dev = sd(Microplastic.Concentration..particles.g.),
+    Min = min(Microplastic.Concentration..particles.g.),
+    Q1 = quantile(Microplastic.Concentration..particles.g., 0.25),
+    Median = median(Microplastic.Concentration..particles.g.),
+    Q3 = quantile(Microplastic.Concentration..particles.g., 0.75),
+    Max = max(Microplastic.Concentration..particles.g.)
+  )
+
+# Print the summary statistics
+print(summary_stats)
