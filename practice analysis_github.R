@@ -40,3 +40,8 @@ summary_stats <- Microplastic_Concentration_Data  %>%
 
 # Print the summary statistics
 print(summary_stats)
+
+#ANOVA comparing microplastic concentration among species
+aov_result <- aov(Microplastic.Concentration..particles.g. ~ Species, data = Microplastic_Concentration_Data  )
+summary(aov_result)
+
