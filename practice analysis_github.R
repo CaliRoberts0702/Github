@@ -51,5 +51,13 @@ ggplot( Microplastic_Concentration_Data, aes(x = Microplastic.Concentration..par
        x = "Microplastic Concentration (particles/g)",
        y = "Density") +
   theme_minimal()
+#Added violin plots
+ggplot(Microplastic_Concentration_Data , aes(x = Species, y = Microplastic.Concentration..particles.g., fill = Species)) +
+  geom_violin() +
+  labs(title = "Violin Plot of Microplastic Concentration by Species",
+       x = "Species",
+       y = "Microplastic Concentration (particles/g)") +
+  theme_minimal()
+
 
 
