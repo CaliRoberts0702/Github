@@ -44,4 +44,12 @@ print(summary_stats)
 #ANOVA comparing microplastic concentration among species
 aov_result <- aov(Microplastic.Concentration..particles.g. ~ Species, data = Microplastic_Concentration_Data  )
 summary(aov_result)
+#Create density plot to understand the distribution of microplastic concentrations for each species
+ggplot( Microplastic_Concentration_Data, aes(x = Microplastic.Concentration..particles.g., fill = Species)) +
+  geom_density(alpha = 0.5) +
+  labs(title = "Density Plot of Microplastic Concentration by Species",
+       x = "Microplastic Concentration (particles/g)",
+       y = "Density") +
+  theme_minimal()
+
 
