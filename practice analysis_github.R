@@ -58,6 +58,19 @@ ggplot(Microplastic_Concentration_Data , aes(x = Species, y = Microplastic.Conce
        x = "Species",
        y = "Microplastic Concentration (particles/g)") +
   theme_minimal()
+#Outlier detection
+boxplot_stats <- boxplot(Microplastic.Concentration..particles.g. ~ Species, data = Microplastic_Concentration_Data, plot = FALSE)
+outliers <- boxplot_stats$out
+print(outliers)
+
+ggplot(Microplastic_Concentration_Data, aes(x = Species, y = Microplastic.Concentration..particles.g.)) +
+  geom_boxplot(outlier.color = "red", outlier.shape = 8) +
+  geom_jitter(width = 0.2, alpha = 0.5) +
+  labs(title = "Boxplot with Outliers Highlighted",
+       x = "Species",
+       y = "Microplastic Concentration (particles/g)") +
+  theme_minimal()
+
 
 
 
