@@ -81,4 +81,9 @@ MPCD %>%
     Mean_Length = mean(Length..cm., na.rm = TRUE),
     Mean_Energy = mean(Energy.Density..kcal.g., na.rm = TRUE)
   )
+#Correlation analysis
+# Correlation matrix
+cor(MPCD[, c("Weight..g.", "Length..cm.", "Energy.Density..kcal.g.", "Microplastic.Concentration..particles.g.")], use = "complete.obs")
+library(GGally)
+ggpairs(MPCD[, c("Weight..g.", "Length..cm.", "Energy.Density..kcal.g.", "Microplastic.Concentration..particles.g.")])
 
