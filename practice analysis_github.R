@@ -70,7 +70,15 @@ ggplot(Microplastic_Concentration_Data, aes(x = Species, y = Microplastic.Concen
        x = "Species",
        y = "Microplastic Concentration (particles/g)") +
   theme_minimal()
-
-
-
+#Dataset modified by adding additional variables 
+MPCD <- read.csv("Modified_Microplastic_Concentration_Dataset.csv")
+#Summary statistics for additional variables grouped by species
+library(dplyr)
+MPCD %>%
+  group_by(Species) %>%
+  summarise(
+    Mean_Weight = mean(Weight..g., na.rm = TRUE),
+    Mean_Length = mean(Length..cm., na.rm = TRUE),
+    Mean_Energy = mean(Energy.Density..kcal.g., na.rm = TRUE)
+  )
 
