@@ -86,4 +86,8 @@ MPCD %>%
 cor(MPCD[, c("Weight..g.", "Length..cm.", "Energy.Density..kcal.g.", "Microplastic.Concentration..particles.g.")], use = "complete.obs")
 library(GGally)
 ggpairs(MPCD[, c("Weight..g.", "Length..cm.", "Energy.Density..kcal.g.", "Microplastic.Concentration..particles.g.")])
+#Regression Analysis
+# Predict Microplastic Concentration based on Length
+length_model <- lm(Microplastic.Concentration..particles.g. ~ Length..cm., data = MPCD)
+summary(length_model)
 
