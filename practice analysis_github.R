@@ -90,4 +90,7 @@ ggpairs(MPCD[, c("Weight..g.", "Length..cm.", "Energy.Density..kcal.g.", "Microp
 # Predict Microplastic Concentration based on Length
 length_model <- lm(Microplastic.Concentration..particles.g. ~ Length..cm., data = MPCD)
 summary(length_model)
+# Predict Microplastic Concentration using multiple predictors
+model_multi <- lm(Microplastic.Concentration..particles.g. ~ Weight..g. + Length..cm. + Energy.Density..kcal.g., data = MPCD)
+summary(model_multi)
 
