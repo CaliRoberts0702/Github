@@ -93,4 +93,15 @@ summary(length_model)
 # Predict Microplastic Concentration using multiple predictors
 model_multi <- lm(Microplastic.Concentration..particles.g. ~ Weight..g. + Length..cm. + Energy.Density..kcal.g., data = MPCD)
 summary(model_multi)
+#Cluster Analysis
+# Scale data and perform k-means clustering
+data_scaled <- scale(MPCD[, c("Weight..g.", "Length..cm.", "Energy.Density..kcal.g.")])
+set.seed(123)
+kmeans_result <- kmeans(data_scaled, centers = 3)
+MPCD$Cluster <- as.factor(kmeans_result$cluster)
+
+# Visualize clusters
+ggplot(MPCD, aes(x = Weight..g., y = Length..cm., color = Cluster)) +
+  geom_point() +
+  labs(title = "K-Means Clustering: Weight vs Length", x = "Weight (g)", y = "Length (cm)")
 
