@@ -48,6 +48,8 @@ summary(aov_result)
 tukey_result <- TukeyHSD(aov_result)
 # Print the Tukey's test results
 print(tukey_result)
+# Visualize the results of Tukey's test
+plot(tukey_result)
 #Create density plot to understand the distribution of microplastic concentrations for each species
 ggplot( Microplastic_Concentration_Data, aes(x = Microplastic.Concentration..particles.g., fill = Species)) +
   geom_density(alpha = 0.5) +
