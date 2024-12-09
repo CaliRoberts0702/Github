@@ -44,6 +44,12 @@ print(summary_stats)
 #ANOVA comparing microplastic concentration among species
 aov_result <- aov(Microplastic.Concentration..particles.g. ~ Species, data = Microplastic_Concentration_Data  )
 summary(aov_result)
+#Effect sizes calculation for ANOVA
+
+library(lsr)
+# Calculate Eta-squared for the ANOVA model
+eta_squared <- etaSquared(aov_result, type = 2)  # Type 2 is commonly used
+print(eta_squared)
 # Perform Tukey's test for multiple comparisons
 tukey_result <- TukeyHSD(aov_result)
 # Print the Tukey's test results
