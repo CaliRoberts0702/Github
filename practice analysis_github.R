@@ -1,7 +1,7 @@
 #Practice Analysis with simulated data (practice for MEES 613 final project)
 #Load data
 library(readr)
-Microplastic_Concentration_Data <- read.csv("~/Documents/MEES 613/Final project/Microplastic_Concentration_Data.csv")
+Microplastic_Concentration_Data <- read.csv("~/Documents/MEES 702/Github/Modified_Microplastic_Concentration_Dataset.csv")
 #Summary statistics
 summary(Microplastic_Concentration_Data)
 #Plot Microplastic concentration by species
@@ -105,6 +105,9 @@ summary(length_model)
 # Predict Microplastic Concentration using multiple predictors
 model_multi <- lm(Microplastic.Concentration..particles.g. ~ Weight..g. + Length..cm. + Energy.Density..kcal.g., data = MPCD)
 summary(model_multi)
+#Interaction model
+interaction_model <- lm(Microplastic.Concentration..particles.g. ~ Weight..g. * Length..cm., data = MPCD)
+summary(interaction_model)
 #Cluster Analysis
 # Scale data and perform k-means clustering
 data_scaled <- scale(MPCD[, c("Weight..g.", "Length..cm.", "Energy.Density..kcal.g.")])
